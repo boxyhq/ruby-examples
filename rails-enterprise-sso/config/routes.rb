@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  get 'sso', to: 'logins#index'
+  get 'sso', to: 'logins#index', as: 'login'
   post 'sso', to: 'oauths#oauth'
   resource :oauth do
     get :callback, to: 'oauths#callback', on: :collection
