@@ -25,9 +25,15 @@
             <li>
               <a href="/sso" class="font-normal text-gray-900">Login</a>
             </li>
+            <% if current_user %>
             <li>
               <a href="/profile" class="font-normal text-gray-900">Profile</a>
             </li>
+            <li class="ml-auto">
+              <%=  link_to 'Log out', logout_path, method: :delete %>
+             
+            </li>
+            <% end %>
           </ul>
         </div>
       </nav>
