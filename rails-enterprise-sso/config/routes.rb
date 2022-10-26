@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   end
 
   get 'profile', to: 'profiles#index', as: 'profile'
+
+  get '/setup/sso', to: 'ssos#index', as: 'setup_sso'
 end
