@@ -43,21 +43,12 @@ module Sorcery
                   ])
       end
 
-      def get_access_token(args, options = {})
-        client = build_client(options)
-        client.auth_code.get_token(
-          args[:code],
-          { client_id: @key, client_secret: @secret, parse: parse, redirect_uri: @callback_url },
-          options
-        )
-      end
-
       # tries to login the user from access token
       def process_callback(params, _session)
         args = {}.tap do |a|
           a[:code] = params[:code] if params[:code]
         end
-        get_access_token(args, token_url: token_url, token_method: :post)
+        get_access_token(args, token_url: token_url, token_method: :post, auth_scheme: :request_body)
       end
 
       def add_param(url, query_params)
