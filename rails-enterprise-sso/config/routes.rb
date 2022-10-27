@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   get 'profile', to: 'profiles#index', as: 'profile'
 
   get '/setup/sso', to: 'ssos#index', as: 'setup_sso'
+  post '/setup/sso', to: 'ssos#save_connection', as: 'save_connection'
 end

@@ -245,6 +245,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
+  faraday (~> 2.6)
   jbuilder (~> 2.7)
   listen (~> 3.3)
   puma (~> 5.0)
