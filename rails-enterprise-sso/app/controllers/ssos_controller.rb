@@ -15,6 +15,6 @@ class SsosController <  ApplicationController
             "rawMetadata" => params[:metadata]
         }
         
-        jackson_client.create_sso_connection(params)
+        jackson_client.create_sso_connection(connection_parameters)
     end
 end

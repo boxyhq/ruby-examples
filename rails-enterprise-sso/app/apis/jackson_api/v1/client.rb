@@ -5,13 +5,14 @@ module JacksonApi
             include ApiExceptions
 
             API_ENDPOINT = ENV['JACKSON_URL'].freeze
-            API_KEY = ENV['JACKSON_API_KEYS'].freeze
+            API_KEY = ENV['JACKSON_API_KEY'].freeze
 
 
             def create_sso_connection(connection)
                 request(
                     http_method: :post,
-                    endpoint: "api/v1/connections"
+                    endpoint: "api/v1/connections",
+                    params: connection
                 )
             end
 
@@ -28,31 +29,31 @@ module JacksonApi
             def request(http_method:, endpoint:, params: {})
               response = client.public_send(http_method, endpoint, params)
               parsed_response = JSON.parse(response.body)
+              response_successful = is_response_successful? response
+              return parsed_response if response_successful
 
-              return parsed_response if response_successful response ?
-
-              raise error_class, "Code: #{response.status}, response: #{response.body}"
+              error_class response
             end  
             
-            def error_class
+            def error_class(response)
                 case response.status
                 when HTTP_BAD_REQUEST_CODE
-                  BadRequestError
+                  raise BadRequestError
                 when HTTP_UNAUTHORIZED_CODE
-                  UnauthorizedError
+                  raise UnauthorizedError
                 when HTTP_FORBIDDEN_CODE
                   return ApiRequestsQuotaReachedError if api_requests_quota_reached?
                   ForbiddenError
                 when HTTP_NOT_FOUND_CODE
-                  NotFoundError
+                  raise NotFoundError
                 when HTTP_UNPROCESSABLE_ENTITY_CODE
-                  UnprocessableEntityError
+                  raise UnprocessableEntityError
                 else
-                  ApiError
+                  raise ApiError
                 end
             end
 
-            def response_successful(response)?
+            def is_response_successful?(response)
                 response.status == HTTP_OK_CODE
             end
 
