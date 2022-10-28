@@ -24,8 +24,10 @@ Copy the `.env.example` to `.env` and populate the values.
 
 ## Start the app
 
-You can run the dev script in the `bin` folder
+Run the rails server.
 
 ```bash
-./bin/rails server
+./bin/dev # This uses the Procfile.dev in the root folder to start the rails server
 ```
+
+To access the app, open the URL http://localhost://3366 in the browser tab.
