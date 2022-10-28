@@ -1,24 +1,31 @@
-# README
+# Rails Demo App with Single Sign-On (SSO)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This demo app shows how to add enterprise SSO to a rails app using the 'Jackson' service.
 
-Things you may want to cover:
+# Getting started
 
-* Ruby version
+## Setup Ruby development environment
 
-* System dependencies
+You can use [rbenv](https://github.com/rbenv/rbenv) to install Ruby on your machine.
 
-* Configuration
+For this demo app, we are using ruby version `2.7.6`.
 
-* Database creation
+## Clone and install the dependencies
 
-* Database initialization
+```bash
+git clone https://github.com/boxyhq/ruby-examples.git
+cd rails-enterprise-sso
+bundle install
+```
 
-* How to run the test suite
+## Setup the env file
 
-* Services (job queues, cache servers, search engines, etc.)
+Copy the `.env.example` to `.env` and populate the values.
 
-* Deployment instructions
+## Start the app
 
-* ...
+You can run the dev script in the `bin` folder
+
+```bash
+./bin/rails server
+```
