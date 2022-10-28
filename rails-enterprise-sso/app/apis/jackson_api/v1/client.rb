@@ -7,6 +7,13 @@ module JacksonApi
             API_ENDPOINT = ENV['JACKSON_URL'].freeze
             API_KEY = ENV['JACKSON_API_KEY'].freeze
 
+            def retrieve_sso_connections(connection_query)
+                request(
+                    http_method: :get,
+                    endpoint: "api/v1/connections",
+                    params: connection_query
+                )
+            end
 
             def create_sso_connection(connection)
                 request(
