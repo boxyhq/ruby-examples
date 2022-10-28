@@ -8,36 +8,39 @@
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'toast', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "toast", media: "all", "data-turbo-track" => "reload"  %>
   </head>
 
   <body>
   <header>
-      <nav class="border-gray-200 px-4 py-4 shadow">
+      <nav class="border-gray-200 px-4 py-4 shadow leading-6">
         <div class="max-w-7xl mx-auto">
           <ul class="flex gap-4">
             <li>
-              <a href="/" class="font-normal text-gray-900">Home</a>
+              <%=  link_to 'Home', root_path , class: 'font-normal text-gray-900'%>
             </li>
             <li>
-              <a href="#" class="font-normal text-gray-900">Setup SAML SSO</a>
+               <%=  link_to 'Setup SSO', setup_sso_path , class: 'font-normal text-gray-900'%>
             </li>
+            <% if current_user %>
             <li>
-              <a href="/sso" class="font-normal text-gray-900">Login</a>
+             <%=  link_to 'Profile', profile_path , class: 'font-normal text-gray-900'%>
             </li>
-            <li>
-              <a href="/profile" class="font-normal text-gray-900">Profile</a>
+            <li class="ml-auto">
+              <%=  link_to 'Log out', logout_path, method: :delete %>
             </li>
+            <% else %>
+             <li>
+             <%=  link_to 'Login', login_path , class: 'font-normal text-gray-900'%>
+            </li>
+            <% end %>
           </ul>
         </div>
       </nav>
     </header>
-    <main class="">
-    <% flash.each do |type, msg| %>
-      <div>
-        <%= msg %>
-       </div>
-    <% end %>
+    <main class="h-[calc(100vh-56px)]">
+      <%= render partial: 'shared/toast'  %>
       <%= yield %>
     </main>
   </body>

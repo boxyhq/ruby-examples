@@ -84,7 +84,7 @@ Rails.application.config.sorcery.configure do |config|
 
   config.boxyhqsaml.site = ENV['JACKSON_URL']
   config.boxyhqsaml.key = 'dummy'
-  config.boxyhqsaml.callback_url = 'http://localhost:3000/oauth/callback'
+  config.boxyhqsaml.callback_url = 'http://localhost:3366/oauth/callback'
   config.boxyhqsaml.secret = ENV['CLIENT_SECRET_VERIFIER']
   config.boxyhqsaml.user_info_mapping = { email: 'email', uid: 'id', firstName: 'firstName', lastName: 'lastName'}
   # You can change it by your local ca_file. i.e. '/etc/pki/tls/certs/ca-bundle.crt'
