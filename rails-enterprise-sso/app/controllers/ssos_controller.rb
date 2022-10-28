@@ -23,5 +23,7 @@ class SsosController <  ApplicationController
         }
         
         @jackson_client.create_sso_connection(connection_parameters)
+
+        redirect_to setup_sso_path
     end
 end
