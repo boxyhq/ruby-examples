@@ -15,4 +15,7 @@ Rails.application.routes.draw do
 
   get '/setup/sso', to: 'ssos#index', as: :setup_sso
   post '/setup/sso', to: 'ssos#save_connection', as: :save_connection
+
+  # OmniAuth
+  get 'auth/boxyhq_sso/callback', to: 'sessions#callback'
 end
