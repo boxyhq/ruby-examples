@@ -16,6 +16,8 @@ module OmniAuth
               options.client_options.authorize_url = '/api/oauth/authorize'
               options.client_options.token_url = '/api/oauth/token'
               options.client_options.userinfo_url = '/api/oauth/userinfo'
+              options.client_options.auth_scheme = :request_body
+              options.token_params = { :redirect_uri => full_host + '/auth/boxyhqsso/callback' }
               super
             end            
 
@@ -27,17 +29,11 @@ module OmniAuth
             uid{ raw_info['id'] }
 
             
-            info do
-              {
-                :name => raw_info['name'],
-                :email => raw_info['email']
-              }
-            end
 
             # Define the parameters used for the /authorize endpoint
             def authorize_params
               params = super
-              %w[connection connection_scope prompt screen_hint login_hint organization invitation ui_locales].each do |key|
+              %w[connection connection_scope prompt screen_hint login_hint organization invitation ui_locales tenant product].each do |key|
                 params[key] = request.params[key] if request.params.key?(key)
               end
       
