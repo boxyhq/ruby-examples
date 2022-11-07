@@ -25,7 +25,8 @@
             </li>
             <% if current_user %>
             <li>
-             <%=  link_to 'Profile', profile_path , class: 'font-normal text-gray-900'%>
+             <% path = @is_omniauth ? omniauth_profile_path : profile_path %>
+             <%=  link_to 'Profile', path , class: 'font-normal text-gray-900'%>
             </li>
             <li class="ml-auto">
               <%=  link_to 'Log out', logout_path, method: :delete %>
