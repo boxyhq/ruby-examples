@@ -5,7 +5,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
         'dummy',
         ENV['CLIENT_SECRET_VERIFIER'],
         ENV['JACKSON_URL'],
-        callback_path: '/auth/boxyhq_sso/callback',
+        callback_path: '/auth/boxyhqsso/callback',
         authorize_params: {
             scope: 'openid'
         }
