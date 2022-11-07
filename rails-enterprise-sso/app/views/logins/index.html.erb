@@ -3,39 +3,13 @@
     <h2 class="text-center text-3xl">Log in to App</h2>
     <div class="max-w-md mx-auto w-full px-3 md:px-0">
       <div class="py-5 px-5 border-gray-200 border bg-white rounded">
-        <form class="space-y-3" method="POST" action="/sso">
-          <label htmlFor="teamId" class="block text-sm">Team ID</label>
-          <input
-            type="text"
-            name="tenant"
-            id="tenant"
-            placeholder="boxyhq.com"
-            class="appearance-none text-sm block w-full border border-gray-300 rounded placeholder-gray-400 focus:outline-none focus:ring-indigo-500"
-            required
-          />
-          <input
-            type="hidden"
-            name="product"
-            id="product"
-            value="saml-demo.boxyhq.com"
-            placeholder="saml-demo.boxyhq.com"
-            class="appearance-none text-sm block w-full border border-gray-300 rounded placeholder-gray-400 focus:outline-none focus:ring-indigo-500"
-            required
-          />
-          <button
-            type="submit"
-            class="px-4 py-2 w-full border border-transparent rounded text-sm font-medium text-white bg-indigo-600 focus:outline-none"
-          >
-            Login with Enterprise SSO (Sorcery)
-          </button>
-          <button
-            type="submit"
-            formaction="/auth/boxyhqsso"
-            class="px-4 py-2 w-full border border-transparent rounded text-sm font-medium text-white bg-indigo-600 focus:outline-none"
-          >
-            Login with Enterprise SSO (OmniAuth)
-          </button>
-        </form>
+      <%= form_with url: "/sso", class: "space-y-3" do |form| %>
+        <%= form.label :tenant, "Tenant", class: "block text-sm" %>
+        <%= form.text_field :tenant, class: "appearance-none text-sm block w-full border border-gray-300 rounded placeholder-gray-400 focus:outline-none focus:ring-indigo-500", required: true %>
+        <%= form.hidden_field :product, value: "saml-demo.boxyhq.com"  %>
+        <%= form.submit "Login with Enterprise SSO (Sorcery)", name: nil, class: "px-4 py-2 w-full border border-transparent rounded text-sm font-medium text-white bg-indigo-600 focus:outline-none" %>
+        <%= form.submit "Login with Enterprise SSO (OmniAuth)", name: nil, class: "px-4 py-2 w-full border border-transparent rounded text-sm font-medium text-white bg-indigo-600 focus:outline-none", formaction: "/auth/boxyhqsso"%>
+      <% end %>
       </div>
     </div>
   </div>
