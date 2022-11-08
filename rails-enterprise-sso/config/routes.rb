@@ -3,12 +3,12 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get 'sso', to: 'logins#index', as: :login
-  post 'sso', to: 'oauths#oauth'
+  post 'sso', to: 'sorcery#oauth'
 
   delete 'logout' => 'logins#destroy', as: :logout
 
   resource :oauth do
-    get :callback, to: 'oauths#callback', on: :collection
+    get :callback, to: 'sorcery#callback', on: :collection
   end
 
   get 'profile', to: 'profiles#index', as: :profile
