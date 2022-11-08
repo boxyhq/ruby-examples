@@ -4,19 +4,19 @@
           <ul class="flex flex-col space-y-3">
             <li class="flex flex-col">
               <span class="font-normal">User ID</span>
-              <span class="text-gray-500"><%= @current_user['id'] %></span>
+              <span class="text-gray-500"><%= current_user.id %></span>
             </li>
             <li class="flex flex-col">
               <span class="font-normal">Email</span>
-              <span class="text-gray-500"><%= @current_user['email'] %></span>
+              <span class="text-gray-500"><%= current_user.email %></span>
             </li>
             <li class="flex flex-col">
               <span class="font-normal">First Name</span>
-              <span class="text-gray-500"><%= @current_user['firstName'] || @current_user['first_name'] %></span>
+              <span class="text-gray-500"><%= current_user.firstName %></span>
             </li>
             <li class="flex flex-col">
               <span class="font-normal">Last Name</span>
-              <span class="text-gray-500"><%= @current_user['lastName'] || @current_user['last_name'] %></span>
+              <span class="text-gray-500"><%= current_user.lastName %></span>
             </li>
           </ul>
         </div>
