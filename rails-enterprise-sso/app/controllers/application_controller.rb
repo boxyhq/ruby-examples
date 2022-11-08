@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def not_authenticated
-    redirect_to login_path, alert: 'Please login first.'
+  def not_authenticated # only for sorcery
+    redirect_to login_path, alert: '⚠️ Please login using sorcery first.'
   end
 end
