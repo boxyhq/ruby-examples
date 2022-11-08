@@ -3,9 +3,7 @@ class OmniauthProfilesController < ApplicationController
     include OmniauthSecured
   
     def show
-      @is_omniauth = true
-      @current_user = session[:userinfo]
-      render "profiles/index"
+      @user = session[:userinfo]
     end
   end
   

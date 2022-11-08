@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   post '/setup/sso', to: 'ssos#save_connection', as: :save_connection
 
   # OmniAuth
-  get 'auth/boxyhqsso/callback', to: 'sessions#callback'
+  get 'auth/boxyhqsso/callback', to: 'omniauth#callback'
   get 'omniauth/profile', to: 'omniauth_profiles#show', as: :omniauth_profile
+  delete 'omniauth/logout' => 'omniauth#logout', as: :omniauth_logout
 end

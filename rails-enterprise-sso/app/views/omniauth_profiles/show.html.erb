@@ -1,0 +1,24 @@
+    <div class="max-w-7xl mx-auto relative top-10">
+      <div class="max-w-[50%]">
+        <div class="py-5 px-5 border-gray-200 border bg-white rounded">
+          <ul class="flex flex-col space-y-3">
+            <li class="flex flex-col">
+              <span class="font-normal">User ID</span>
+              <span class="text-gray-500"><%= @user['id'] %></span>
+            </li>
+            <li class="flex flex-col">
+              <span class="font-normal">Email</span>
+              <span class="text-gray-500"><%= @user['email'] %></span>
+            </li>
+            <li class="flex flex-col">
+              <span class="font-normal">First Name</span>
+              <span class="text-gray-500"><%= @user['first_name'] %></span>
+            </li>
+            <li class="flex flex-col">
+              <span class="font-normal">Last Name</span>
+              <span class="text-gray-500"><%= @user['last_name'] %></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
