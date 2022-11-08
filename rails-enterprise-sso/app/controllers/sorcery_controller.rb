@@ -5,12 +5,12 @@ class SorceryController < ApplicationController
 
   def oauth
     # tenant = params[:teamId]
-    login_at('boxyhqsaml', state: SecureRandom.hex(16))
+    login_at('boxyhqsso', state: SecureRandom.hex(16))
   end
 
   # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
   def callback
-    provider = 'boxyhqsaml'
+    provider = 'boxyhqsso'
     if @user = login_from(provider)
       redirect_to profile_path, notice: "Logged in from #{provider.titleize}!"
     else

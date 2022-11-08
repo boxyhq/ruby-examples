@@ -80,13 +80,13 @@ Rails.application.config.sorcery.configure do |config|
   # i.e. [:twitter, :facebook, :github, :linkedin, :xing, :google, :liveid, :salesforce, :slack, :line].
   # Default: `[]`
   #
-  config.external_providers = [:boxyhqsaml]
+  config.external_providers = [:boxyhqsso]
 
-  config.boxyhqsaml.site = ENV['JACKSON_URL']
-  config.boxyhqsaml.key = 'dummy'
-  config.boxyhqsaml.callback_url = 'http://localhost:3366/oauth/callback'
-  config.boxyhqsaml.secret = ENV['CLIENT_SECRET_VERIFIER']
-  config.boxyhqsaml.user_info_mapping = { email: 'email', uid: 'id', firstName: 'firstName', lastName: 'lastName'}
+  config.boxyhqsso.site = ENV['JACKSON_URL']
+  config.boxyhqsso.key = 'dummy'
+  config.boxyhqsso.callback_url = 'http://localhost:3366/oauth/callback'
+  config.boxyhqsso.secret = ENV['CLIENT_SECRET_VERIFIER']
+  config.boxyhqsso.user_info_mapping = { email: 'email', uid: 'id', firstName: 'firstName', lastName: 'lastName'}
   # You can change it by your local ca_file. i.e. '/etc/pki/tls/certs/ca-bundle.crt'
   # Path to ca_file. By default use a internal ca-bundle.crt.
   # Default: `'path/to/ca_file'`
