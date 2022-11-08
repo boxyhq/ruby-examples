@@ -3,6 +3,12 @@ class ApplicationController < ActionController::Base
 
   before_action :require_login, except: [:not_authenticated]
 
+  def omniauth_user
+    @user = session[:userinfo]
+  end
+
+  helper_method :omniauth_user
+
   protected
 
   def not_authenticated
