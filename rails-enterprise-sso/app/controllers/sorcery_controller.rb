@@ -1,10 +1,7 @@
 class SorceryController < ApplicationController
   skip_before_action :require_login, raise: false
 
-  def index; end
-
   def oauth
-    # tenant = params[:teamId]
     login_at('boxyhqsso', state: SecureRandom.hex(16))
   end
 
