@@ -1,6 +1,6 @@
 module Sorcery
   module Providers
-    # This class adds support for OAuth2.0 SSO with Jackson service.
+    # This class adds support for OAuth2.0 SSO flow with Jackson service.
     #
     #   config.boxyhqsso.site = <http://localhost:5225>
     #   config.boxyhqsso.key = <key>
