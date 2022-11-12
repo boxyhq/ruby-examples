@@ -18,8 +18,8 @@ class SorceryController < ApplicationController
         reset_session # protect from session fixation attack
         auto_login(@user)
         redirect_to profile_path, notice: "Logged in from #{provider.titleize}!"
-      rescue
-        redirect_to root_path, alert: "Failed to login from #{provider.titleize}!"
+      rescue StandardError => e
+        redirect_to root_path, alert: "Failed to login from #{provider.titleize}! :: #{e.inspect}"
       end
     end
   rescue ::OAuth2::Error => e
