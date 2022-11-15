@@ -1,13 +1,13 @@
 module Sorcery
   module Providers
-    # This class adds support for OAuth with BoxyHQ SAML.
+    # This class adds support for OAuth2.0 SSO flow with Jackson service.
     #
-    #   config.boxyhqsaml.site = <http://localhost:5225>
-    #   config.boxyhqsaml.key = <key>
-    #   config.boxyhqsaml.secret = <secret>
+    #   config.boxyhqsso.site = <http://localhost:5225>
+    #   config.boxyhqsso.key = <key>
+    #   config.boxyhqsso.secret = <secret>
     #   ...
     #
-    class Boxyhqsaml < Base
+    class Boxyhqsso < Base
       include Protocols::Oauth2
 
       attr_reader :parse

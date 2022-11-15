@@ -61,3 +61,8 @@ gem 'sorcery'
 
 gem "terser", "~> 1.1"
 gem "faraday", "~> 2.6"
+
+gem "omniauth", "~> 2.1"
+gem "omniauth-oauth2", "~> 1.8"
+
+gem "omniauth-rails_csrf_protection", "~> 1.0"

@@ -30,9 +30,17 @@
             <li class="ml-auto">
               <%=  link_to 'Log out', logout_path, method: :delete %>
             </li>
+            <%# omniauth %>
+            <% elsif omniauth_user %>
+            <li>
+             <%=  link_to 'Profile', omniauth_profile_path , class: 'font-normal text-gray-900'%>
+            </li>
+            <li class="ml-auto">
+              <%=  link_to 'Log out', omniauth_logout_path, method: :delete %>
+            </li>            
             <% else %>
              <li>
-             <%=  link_to 'Login', login_path , class: 'font-normal text-gray-900'%>
+             <%=  link_to 'Login', login_path , class: 'font-normal text-gray-900', data: { turbolinks: "false" }%>
             </li>
             <% end %>
           </ul>
